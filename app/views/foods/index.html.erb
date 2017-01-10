@@ -1,0 +1,18 @@
+<h1>Listing Items</h1>
+
+<div>
+  <% @foods.in_groups_of(3) do |group| %>
+    <div class="row">
+      <% group.compact.each do |food| %>
+        <div class="col-md-4">
+          <%= image_tag food.picture_url, width: '100%' if food.picture.present?%>
+            <div>
+              <h4><%= link_to food.title, food %></h4>
+              <h4><%= food.price%></h4>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<br />

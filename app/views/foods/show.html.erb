@@ -1,0 +1,21 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-9">
+    <%= image_tag(@food.picture_url, width: '50%') if @food.picture.present? %>
+  </div>
+
+  <div class="col-md-3">
+    <p><b>Title: </b><%= @food.title %></p>
+    <p><b>Description: </b><%= @food.description %></p>
+    <p><b>Price: </b><%= @food.price %>円</p>
+    <p><b>Exhibitor: </b><%= current_user.email %></p>
+    <p>
+      <%= link_to 'Edit', edit_food_path(@food) %> |
+      <%= link_to 'Destroy', @food, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <%= link_to 'Back', foods_path %>
+    </p>
+    <p class="contact"><%= link_to "出品者へお問い合わせ", :controller => "contact", :action => "index" %></p>
+  </div>
+</div>
